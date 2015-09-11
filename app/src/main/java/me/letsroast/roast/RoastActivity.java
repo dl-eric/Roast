@@ -65,7 +65,15 @@ public class RoastActivity extends AppCompatActivity{
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Tab " + (position + 1);
+            if(position == 0)
+                return "Let's Roast";
+            else if(position == 1)
+                return "Account";
+            else if(position == 2)
+                return "More";
+//            return "Tab " + (position + 1);
+            else
+                return "";
         }
     }
 }
