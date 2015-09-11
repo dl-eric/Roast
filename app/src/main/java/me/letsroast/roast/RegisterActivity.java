@@ -33,30 +33,25 @@ public class RegisterActivity extends AppCompatActivity
         context = this;
 
         username = (EditText) findViewById(R.id.username);
-        email = (EditText) findViewById(R.id.username);
+        email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
 
-        Parse.initialize(this, "ITBX0xVookLOeoIB7FTKm8OFrxa5D7oZ22Meij4I", "ymB28zhf7GOe6YjsFEuij6mVfJabk3Mq9OpQM2vx");
-
-        Button button = (Button) findViewById(R.id.registerButton);
-
-        button.setOnClickListener(new View.OnClickListener()
-        {
+        Button button = (Button)findViewById(R.id.registerButton);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                registerClick();
+            public void onClick(View v) {
+                registerButtonClick();
             }
         });
     }
 
-    public void registerClick()
+    public void registerButtonClick()
     {
         mUsername = username.getText().toString();
         mEmail = email.getText().toString();
         mPassword = password.getText().toString();
 
-        if(isUsernameValid(mUsername) && isEmailValid(mEmail) && isPasswordValid(mPassword))
+        if(isEmailValid(mEmail) && isPasswordValid(mPassword) && isUsernameValid(mPassword))
         {
             RegisterTask registerTask = new RegisterTask(mUsername, mEmail, mPassword);
             registerTask.register();

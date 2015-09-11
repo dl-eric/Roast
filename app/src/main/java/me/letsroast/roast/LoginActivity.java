@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity
         mUsername = (EditText) findViewById(R.id.username);
         mPassword = (EditText) findViewById(R.id.password);
 
-        Button button = (Button) findViewById(R.id.registerButton);
+        Button button = (Button) findViewById(R.id.loginButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -40,11 +40,11 @@ public class LoginActivity extends AppCompatActivity
             }
         });
     }
-    public void login(String username, String password)
+    public void login(final String username, final String password)
     {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
-                if (user != null) {
+                if (user != null && isUsernameValid(username) && isPasswordValid(password)) {
                     // Hooray! The user is logged in.
                     Intent intent = new Intent(context, RoastActivity.class);
                     startActivity(intent);
@@ -55,10 +55,10 @@ public class LoginActivity extends AppCompatActivity
         });
     }
 
-    private boolean isEmailValid(String email)
+    private boolean isUsernameValid(String username)
     {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return username.length() < 20;
     }
 
     private boolean isPasswordValid(String password)
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity
         return password.length() > 6;
     }
 
-    private void toRegister(View view)
+    public void toRegister(View view)
     {
         Intent intent = new Intent(context, RegisterActivity.class);
         startActivity(intent);
