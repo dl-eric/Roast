@@ -38,6 +38,9 @@ public class RoastActivity extends AppCompatActivity{
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @Override
+    public void onBackPressed() {}
+
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
 
         public MyPagerAdapter(FragmentManager fm) {
