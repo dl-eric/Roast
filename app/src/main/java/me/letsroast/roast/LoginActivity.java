@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         context = this;
+
         Parse.initialize(this, "ITBX0xVookLOeoIB7FTKm8OFrxa5D7oZ22Meij4I", "ymB28zhf7GOe6YjsFEuij6mVfJabk3Mq9OpQM2vx");
 
         mUsername = (EditText) findViewById(R.id.username);

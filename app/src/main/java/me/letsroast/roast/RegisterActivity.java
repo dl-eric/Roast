@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -102,12 +103,25 @@ public class RegisterActivity extends AppCompatActivity
                     if (e == null)
                     {
                         // Hooray! Let them use the app now.
-                        Intent intent = new Intent(context, LoginActivity.class);
-                        startActivity(intent);
+                        login(mUsername, mPassword);
                     } else
                     {
                         // Sign up didn't succeed. Look at the ParseException
                         // to figure out what went wrong
+                    }
+                }
+            });
+        }
+        public void login(final String username, final String password)
+        {
+            ParseUser.logInInBackground(username, password, new LogInCallback() {
+                public void done(ParseUser user, ParseException e) {
+                    if (user != null && isUsernameValid(username) && isPasswordValid(password)) {
+                        // Hooray! The user is logged in.
+                        Intent intent = new Intent(context, RoastActivity.class);
+                        startActivity(intent);
+                    } else {
+                        // Signup failed. Look at the ParseException to see what happened.
                     }
                 }
             });
