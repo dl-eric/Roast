@@ -25,14 +25,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity1"
-            android:label="@string/title_activity_login1"
-            android:windowSoftInputMode="adjustResize|stateVisible" >
+            android:name=".RegisterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:exported="true" >
+            android:name=".RoastActivity"
+            android:label="@string/title_activity_roast" >
         </activity>
     </application>
 

@@ -2,8 +2,6 @@ package me.letsroast.roast;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity
         getSupportActionBar().hide();
 
         username = (EditText) findViewById(R.id.username);
-        email = (EditText) findViewById(R.id.email);
+        email = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
 
         Parse.initialize(this, "ITBX0xVookLOeoIB7FTKm8OFrxa5D7oZ22Meij4I", "ymB28zhf7GOe6YjsFEuij6mVfJabk3Mq9OpQM2vx");
