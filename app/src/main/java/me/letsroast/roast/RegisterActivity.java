@@ -1,5 +1,7 @@
 package me.letsroast.roast;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,12 +23,14 @@ public class RegisterActivity extends AppCompatActivity
     private EditText email;
     private EditText password;
 
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
+        context = this;
 
         username = (EditText) findViewById(R.id.username);
         email = (EditText) findViewById(R.id.username);
@@ -103,6 +107,8 @@ public class RegisterActivity extends AppCompatActivity
                     if (e == null)
                     {
                         // Hooray! Let them use the app now.
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        startActivity(intent);
                     } else
                     {
                         // Sign up didn't succeed. Look at the ParseException
