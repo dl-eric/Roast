@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.parse.Parse;
@@ -32,15 +34,26 @@ public class RegisterActivity extends AppCompatActivity
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
 
-        mUsername = username.getText().toString();
-        mEmail = email.getText().toString();
-        mPassword = password.getText().toString();
-
         Parse.initialize(this, "ITBX0xVookLOeoIB7FTKm8OFrxa5D7oZ22Meij4I", "ymB28zhf7GOe6YjsFEuij6mVfJabk3Mq9OpQM2vx");
+
+        Button button = (Button) findViewById(R.id.registerButton);
+
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                registerClick();
+            }
+        });
     }
 
     public void registerClick()
     {
+        mUsername = username.getText().toString();
+        mEmail = email.getText().toString();
+        mPassword = password.getText().toString();
+
         if(isUsernameValid(mUsername) && isEmailValid(mEmail) && isPasswordValid(mPassword))
         {
             RegisterTask registerTask = new RegisterTask(mUsername, mEmail, mPassword);
