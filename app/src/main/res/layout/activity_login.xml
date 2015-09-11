@@ -1,22 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                android:background="#17e8e9ff"
+    android:orientation="horizontal"
+    android:background="#17e8e9ff"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context=".LoginActivity">
 
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="621dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/bacon"
+        android:layout_gravity="center_vertical" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:layout_marginTop="99dp"
-        android:layout_alignParentTop="true"
+        android:src="@drawable/bigpig"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/pig"/>
+        android:layout_marginTop="50dp" />
 
     <AutoCompleteTextView
         android:layout_width="200dp"
@@ -25,7 +32,7 @@
         android:id="@+id/username"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:hint="Username"
         android:background="#ffffff"
         android:paddingLeft="10dp"
@@ -60,7 +67,8 @@
         android:id="@+id/loginButton"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:background="#f79b88" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,7 +78,18 @@
         android:id="@+id/textView"
         android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:clickable="true"
         android:onClick="toRegister" />
-</RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roast"
+            android:id="@+id/textView2"
+            android:textSize="48dp"
+            android:typeface="serif"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    </LinearLayout>
