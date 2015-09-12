@@ -1,22 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:background="#17e8e9ff"
+    android:background="#f5f8dc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context=".LoginActivity">
 
-    <ImageView
-        android:layout_width="72dp"
-        android:layout_height="621dp"
-        android:id="@+id/imageView2"
-        android:src="@drawable/bacon"
-        android:layout_gravity="center_vertical" />
-
     <RelativeLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="85">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +62,8 @@
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="#f79b88" />
+        android:background="#f79b88"
+        android:textColor="#010101"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -86,12 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roast"
-            android:id="@+id/textView2"
-            android:textSize="48dp"
+            android:id="@+id/roastText"
+            android:textSize="100dp"
             android:typeface="serif"
-            android:layout_centerVertical="true"
+            android:textColor="#f79b88"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/imageView"
-            android:layout_marginTop="10dp" />
+            android:layout_above="@+id/password"/>
     </RelativeLayout>
-    </LinearLayout>
+
+</LinearLayout>

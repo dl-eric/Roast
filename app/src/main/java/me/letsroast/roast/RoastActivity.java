@@ -1,5 +1,7 @@
 package me.letsroast.roast;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -52,7 +54,7 @@ public class RoastActivity extends AppCompatActivity{
             switch(pos) {
 
                 case 0: return Fragment1.newInstance();
-                case 1: return Fragment2.newInstance();
+                case 1: return Fragment2.newInstance(RoastActivity.this);
                 case 2: return Fragment3.newInstance();
                 default: return Fragment1.newInstance();
             }

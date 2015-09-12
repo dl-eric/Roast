@@ -1,12 +1,13 @@
 package me.letsroast.roast;
 
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -17,7 +18,6 @@ public class LoginActivity extends AppCompatActivity
 {
     private EditText mUsername;
     private EditText mPassword;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,12 +25,17 @@ public class LoginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //getSupportActionBar().hide();
-        context = this;
 
         Parse.initialize(this, "ITBX0xVookLOeoIB7FTKm8OFrxa5D7oZ22Meij4I", "ymB28zhf7GOe6YjsFEuij6mVfJabk3Mq9OpQM2vx");
 
         mUsername = (EditText) findViewById(R.id.username);
         mPassword = (EditText) findViewById(R.id.password);
+
+        TextView tx = (TextView)findViewById(R.id.roastText);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ROLLOGLI.TTF");
+
+        tx.setTypeface(custom_font);
 
         Button button = (Button) findViewById(R.id.loginButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +52,7 @@ public class LoginActivity extends AppCompatActivity
             public void done(ParseUser user, ParseException e) {
                 if (user != null && isUsernameValid(username) && isPasswordValid(password)) {
                     // Hooray! The user is logged in.
-                    Intent intent = new Intent(context, RoastActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, RoastActivity.class);
                     startActivity(intent);
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
@@ -70,7 +75,14 @@ public class LoginActivity extends AppCompatActivity
 
     public void toRegister(View view)
     {
-        Intent intent = new Intent(context, RegisterActivity.class);
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        System.exit(0);
     }
 }

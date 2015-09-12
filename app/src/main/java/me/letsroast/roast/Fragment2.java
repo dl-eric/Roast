@@ -1,12 +1,18 @@
 package me.letsroast.roast;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.parse.ParseUser;
+
 public class Fragment2 extends Fragment {
+
+    private static Context mContext;
 
     /**
      * Use this factory method to create a new instance of
@@ -14,7 +20,8 @@ public class Fragment2 extends Fragment {
      *
      * @return A new instance of fragment Fragment2.
      */
-    public static Fragment2 newInstance() {
+    public static Fragment2 newInstance(Context context) {
+        mContext = context;
         return new Fragment2();
     }
 
@@ -25,6 +32,7 @@ public class Fragment2 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -32,5 +40,11 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment2, container, false);
+    }
+
+    public void logOut(View view)
+    {
+        ParseUser.logOut();
+        startActivity(new Intent(mContext, LoginActivity.class));
     }
 }
