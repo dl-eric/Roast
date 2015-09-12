@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
+                 xmlns:foo="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:background="#f5f8dc"
                 android:layout_width="match_parent"
@@ -17,18 +18,18 @@
         android:id="@+id/imageView"
         android:src="@drawable/bigpig"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="40dp" />
 
     <AutoCompleteTextView
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:id="@+id/username"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:hint="Username"
-        android:background="#ffffff"
+        android:background="@drawable/roundedtext"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:typeface="sans"
@@ -38,8 +39,8 @@
         android:inputType="textNoSuggestions" />
 
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/password"
@@ -47,7 +48,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:hint="Password"
-        android:background="#ffffff"
+        android:background="@drawable/roundedtext"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:typeface="sans"
@@ -55,14 +56,15 @@
         android:maxLines="1"/>
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:text="Log In"
+        android:radius="10dp"
         android:id="@+id/loginButton"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="#f79b88"
+        android:background="@drawable/roundedbutton"
         android:textColor="#010101"/>
 
     <TextView
@@ -77,17 +79,17 @@
         android:clickable="true"
         android:onClick="toRegister" />
 
-        <TextView
+        <me.letsroast.roast.TextViewPlus
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roast"
             android:id="@+id/roastText"
-            android:textSize="100dp"
-            android:typeface="serif"
+            android:textSize="140dp"
+            foo:customFont="rollogli.ttf"
             android:textColor="#f79b88"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/imageView"
-            android:layout_above="@+id/password"/>
+            android:layout_marginTop="-20dp" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity
 
         TextView tx = (TextView)findViewById(R.id.roastText);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ROLLOGLI.TTF");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "rollogli.ttf");
 
         tx.setTypeface(custom_font);
 
